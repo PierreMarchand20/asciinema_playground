@@ -21,5 +21,3 @@ mkdir prompt_demo
 cd prompt_demo
 
 asciiscript -humanize -inputfile ${MY_PATH}/prompt.sh -args "${MY_PATH}/../../output/2020_CTCW_zsh/prompt.cast --command=zsh"
-
-
