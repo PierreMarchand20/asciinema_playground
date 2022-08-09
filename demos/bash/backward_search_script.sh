@@ -1,3 +1,4 @@
+#$ delay 50
 touch my_first_file.txt
 #$ expect \r\n
 
@@ -21,7 +22,7 @@ rm my_first_file.txt
 
 #$ sendcontrol m
 #$ wait 80
-#$ delay 150
+#$ delay 50
 #$ expect \n
 
 
