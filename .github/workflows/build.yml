@@ -11,6 +11,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     name: Check Dockerfile
+    outputs:
+      run_job: ${{ steps.check_files.outputs.run_job }}
     if: "!contains(github.event.head_commit.message, '[build skip]')"
     steps:
       - name: Checkout
@@ -18,18 +20,18 @@ jobs:
         with:
           fetch-depth: 2
       - name: Check if Dockerfile is modified
+        id: check_files
         run: |
           if (git diff -s --exit-code HEAD~1 HEAD -- Dockerfile);then
             echo "::set-output name=run_job::false"
-            echo "FALSE"
           else
             echo "::set-output name=run_job::true"
-            echo "RIGHT"
           fi
 
   main:
     runs-on: ubuntu-latest
     name: Build Docker Image
+    needs: check
     if: ${{ !contains(github.event.head_commit.message, '[build skip]') && needs.check.outputs.run_job == 'true' }}
     steps:
       - name: Checkout
