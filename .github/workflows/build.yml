@@ -21,14 +21,16 @@ jobs:
         run: |
           if (git diff -s --exit-code HEAD~1 HEAD -- Dockerfile);then
             echo "::set-output name=run_job::false"
+            echo "FALSE"
           else
             echo "::set-output name=run_job::true"
+            echo "RIGHT"
           fi
 
   main:
     runs-on: ubuntu-latest
     name: Build Docker Image
-    if: "!contains(github.event.head_commit.message, '[build skip]') && needs.check.outputs.run_job == 'true'"
+    if: ${{ !contains(github.event.head_commit.message, '[build skip]') && needs.check.outputs.run_job == 'true' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
