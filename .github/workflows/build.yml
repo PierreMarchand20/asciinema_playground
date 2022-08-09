@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Docker Image
     needs: check
-    if: ${{ !contains(github.event.head_commit.message, '[build skip]') && needs.check.outputs.run_job == 'true' }}
+    if: ${{ (!contains(github.event.head_commit.message, '[build skip]') && needs.check.outputs.run_job == 'true') || contains(github.event.head_commit.message, '[force build]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -51,6 +51,6 @@ jobs:
         with:
           push: true
           file: ./Dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker_terminal_demos:latest
-          cache-from: ${{ secrets.DOCKERHUB_USERNAME }}/docker_terminal_demos:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/asciinema_playground:latest
+          cache-from: ${{ secrets.DOCKERHUB_USERNAME }}/asciinema_playground:latest
           build-args: BUILDKIT_INLINE_CACHE=1
