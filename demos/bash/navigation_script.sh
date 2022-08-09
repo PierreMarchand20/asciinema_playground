@@ -1,11 +1,18 @@
-pwd 
-
-ascinema rec test.cast
-
+#$ delay 100
 pwd
+#$ expect \$
+
+cd /
+#$ expect \$
+
+cd ~/..
+#$ expect \$
+
+ls 
+#$ expect \$
 
 cd
+#$ expect \$
 
-pwd
-
-exit
+ls ../
+#$ expect \$
