@@ -1,4 +1,7 @@
 #$ delay 100
+
+#$ expect \$
+
 pwd
 #$ expect \$
 

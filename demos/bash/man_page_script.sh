@@ -1,3 +1,5 @@
+#$ expect \$
+
 man echo
 #$ expect quit
 

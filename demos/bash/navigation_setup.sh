@@ -2,7 +2,7 @@
 mkdir -p ../../output/bash
 
 # Run container
-docker run --rm -it -d  --name navigation_bash --entrypoint bash pierremarchand/docker_terminal_demos
+docker run --rm -it -d  --name navigation_bash --entrypoint bash pierremarchand/asciinema_playground
 
 # Add file to container
 touch textfile.txt

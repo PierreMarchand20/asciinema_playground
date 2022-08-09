@@ -1,34 +1,36 @@
 #$ delay 100
 
+#$ expect \$
+
 pwd
-#$ expect /home/Alice\r\n
+#$ expect \$
 
 mkdir my_directory
-#$ expect \r\n
+#$ expect \$
 
 cd my_directory
-#$ expect \r\n
+#$ expect \$
 
 pwd
 #$ expect /home/Alice/my_directory\r\n
 
 touch my_textfile.txt
-#$ expect \r\n
+#$ expect \$
 
 ls
 #$ expect my_textfile.txt\r\n
 
 rm my_textfile.txt
-#$ expect \r\n
+#$ expect \$
 
 ls 
-#$ expect \r\n
+#$ expect \$
 
 cd ..
-#$ expect \r\n
+#$ expect \$
 
 rm -r my_directory
-#$ expect \r\n
+#$ expect \$
 
 ls my_directory
-#$ expect directory\r\n
+#$ expect \$

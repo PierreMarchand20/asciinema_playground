@@ -2,7 +2,7 @@
 mkdir -p ../../output/asciinema_automation
 
 # Run container
-docker run --rm -it -d  --name asciinema_automation --entrypoint bash pierremarchand/docker_terminal_demos
+docker run --rm -it -d  --name asciinema_automation --entrypoint bash pierremarchand/asciinema_playground
 
 # Send scripts to container
 docker cp hello_world.sh  asciinema_automation:/home/Alice/

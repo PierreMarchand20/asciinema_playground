@@ -2,7 +2,7 @@
 mkdir -p ../../output/bash
 
 # Run container
-docker run --rm -it -d  --name change_structure_bash --entrypoint bash pierremarchand/docker_terminal_demos
+docker run --rm -it -d  --name change_structure_bash --entrypoint bash pierremarchand/asciinema_playground
 
 # Send script to container
 docker cp change_structure_script.sh  change_structure_bash:/home/Alice/

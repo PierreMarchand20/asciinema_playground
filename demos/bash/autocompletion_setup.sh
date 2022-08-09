@@ -2,7 +2,7 @@
 mkdir -p ../../output/bash
 
 # Run container
-docker run --rm -it -d  --name autocompletion_bash --entrypoint bash pierremarchand/docker_terminal_demos
+docker run --rm -it -d  --name autocompletion_bash --entrypoint bash pierremarchand/asciinema_playground
 
 # Send script to container
 docker cp autocompletion_script.sh  autocompletion_bash:/home/Alice/

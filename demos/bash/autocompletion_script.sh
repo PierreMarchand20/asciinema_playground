@@ -1,7 +1,9 @@
 #$ delay 10
 
+#$ expect \$
+
 mkdir my_folder_with_a_very_long_name
-#$ expect \r\n
+#$ expect \$
 
 #$ delay 150
 
@@ -12,7 +14,7 @@ mkdir my_folder_with_a_very_long_name
 #$ expect name
 
 #$ sendcontrol m
-#$ expect \n
+#$ expect \$
 
 pwd
-#$ expect very_long_name
+#$ expect \$
