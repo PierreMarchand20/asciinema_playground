@@ -13,7 +13,7 @@ jobs:
     name: Check Dockerfile
     outputs:
       run_job: ${{ steps.check_files.outputs.run_job }}
-    if: "!contains(github.event.head_commit.message, '[build skip]')"
+    if: ${{ !contains(github.event.head_commit.message, '[skip build]') && !contains(github.event.head_commit.message, '[force build]')}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Docker Image
     needs: check
-    if: ${{ (!contains(github.event.head_commit.message, '[build skip]') && needs.check.outputs.run_job == 'true') || contains(github.event.head_commit.message, '[force build]') }}
+    if: ${{ (!contains(github.event.head_commit.message, '[skip build]') && needs.check.outputs.run_job == 'true') || contains(github.event.head_commit.message, '[force build]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
