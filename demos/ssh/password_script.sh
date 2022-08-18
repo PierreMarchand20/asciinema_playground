@@ -3,7 +3,7 @@
 #$ expect \$
 
 hostname -I
-#$ 172.17.0.3
+#$ expect 172.17.0.3
 
 ssh Alice@172.17.0.2
 #$ expect (yes/no/[fingerprint])?

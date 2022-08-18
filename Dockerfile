@@ -7,6 +7,8 @@ RUN apt-get update \
     ca-certificates \
     wget \
     ssh \
+    sshpass \
+    rsync \
     libssl-dev \
     git \
     vim \
