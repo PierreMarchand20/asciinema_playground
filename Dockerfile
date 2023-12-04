@@ -5,6 +5,7 @@ WORKDIR /root
 RUN apt-get update \
     && DEBIAN_FRONTEND="noninteractive" apt-get install -y --no-install-recommends \
     ca-certificates \
+    locales \
     wget \
     ssh \
     sshpass \
@@ -12,7 +13,7 @@ RUN apt-get update \
     libssl-dev \
     git \
     vim \
-    python3-pip python3-dev\
+    python3-pip python3-dev python3-venv\
     man \
     less \
     && yes | unminimize \
